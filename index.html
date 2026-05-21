@@ -15,16 +15,23 @@
 
   <header class="hero" id="topo">
     <div class="hero-content">
-      <img class="hero-photo" src="assets/perfil.jpg" alt="kito — foto de perfil" width="140" height="140" />
+      <img
+        class="hero-photo"
+        id="hero-photo"
+        src="assets/perfil.jpg"
+        alt="kito — foto de perfil"
+        width="140"
+        height="140"
+      />
       <p class="hero-badge">Artista · Brasil</p>
       <h1>kito</h1>
       <p class="hero-handle">@eukitoo <span class="verified" title="Verificado">✓</span></p>
       <p class="hero-tagline">Just making music</p>
 
       <ul class="hero-stats">
-        <li><strong>+2M</strong><span>streams</span></li>
-        <li><strong>90 mil</strong><span>seguidores</span></li>
-        <li><strong>127</strong><span>posts</span></li>
+        <li><strong id="hero-stat-streams">+2M</strong><span>streams</span></li>
+        <li><strong id="hero-stat-followers">90 mil</strong><span>seguidores</span></li>
+        <li><strong id="hero-stat-posts">127</strong><span>posts</span></li>
       </ul>
     </div>
 
@@ -69,14 +76,48 @@
           </div>
         </div>
 
-        <div class="spotify-player">
-          <iframe
-            id="spotify-embed"
-            src="https://open.spotify.com/embed/artist/618jWwZQ91mDQdkrbG2Qcb?utm_source=generator&theme=0"
-            title="kito no Spotify"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-          ></iframe>
+        <div class="spotify-block">
+          <div class="spotify-block__top">
+            <div class="spotify-block__brand">
+              <img class="spotify-block__avatar" src="assets/perfil.jpg" alt="" width="56" height="56" />
+              <div>
+                <p class="spotify-block__name">kito</p>
+                <p class="spotify-block__meta">Último lançamento · Spotify</p>
+              </div>
+            </div>
+            <a
+              class="btn btn-spotify spotify-block__open"
+              id="spotify-open-app"
+              href="https://open.spotify.com/intl-pt/artist/618jWwZQ91mDQdkrbG2Qcb"
+              target="_blank"
+              rel="noopener"
+            >
+              Abrir no Spotify
+            </a>
+          </div>
+          <div class="spotify-releases" id="spotify-releases" aria-label="Último lançamento no Spotify">
+            <article class="spotify-album" id="spotify-latest">
+              <h3 class="spotify-album__title">
+                <span id="spotify-latest-title">Confessions Missing Tracks</span>
+                <span class="spotify-album__badge" id="spotify-latest-badge">EP · 2026</span>
+              </h3>
+              <div class="spotify-player">
+                <iframe
+                  id="spotify-latest-embed"
+                  src="https://open.spotify.com/embed/album/68s7bZwqqqbgkQkmjdrV7f?utm_source=presskit&theme=0"
+                  title="Confessions Missing Tracks — kito no Spotify"
+                  width="100%"
+                  height="420"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="eager"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+              </div>
+            </article>
+          </div>
+          <p class="spotify-file-hint" id="spotify-file-hint" hidden>
+            O player do Spotify não abre em arquivo local. Rode <code>npm run dev</code> ou use o site publicado na Vercel.
+          </p>
         </div>
       </div>
     </section>
@@ -97,30 +138,48 @@
 
       <article class="bio-panel bio-panel-en">
         <p>
-          <strong>kito</strong> (@eukitoo) is a 21-year-old singer from São Paulo, Brazil. Music has been
-          part of his life since childhood — from drums to piano. In June 2023 he released his debut single
-          <em>Projeto Passado</em>, building an audience that also knows him as “Boy do trap” and
-          “Conde do trap.” With over <strong>2 million streams</strong>, his lyrics reflect real stories,
-          obstacles, and dreams, with strong charisma on social media and releases.
+          kito is a young Brazilian artist who turns feeling into music. After starting out in trap and
+          surpassing 3 million streams, collaborating with names in the scene such as Derek, Jackdi, and Lil
+          Drope, he shows that his identity goes beyond any label. His track <strong>Business</strong> with
+          <strong>Derek</strong> has already passed <strong>HALF A MILLION</strong> streams and keeps growing
+          strongly since release.
         </p>
         <p>
-          Albums such as <em>Late Hours</em> (2025) and <em>Confessions Missing Tracks</em> (2026) expand
-          his sound across trap, R&B, and cinematic atmospheres. Verified on Instagram; partnerships via DM.
+          His first career album, <strong>Late Hours</strong>, is born as a versatility manifesto: an artistic
+          shift blending atmospheric R&amp;B, eighties synthpop, trap, and contemporary soul — all in English.
+          Between lighter tracks like <strong>Halfway Gone</strong>, introspective moments, and striking
+          melodies like <strong>Confessions</strong>, kito builds a signature aesthetic — emotional, modern,
+          and introspective.
+        </p>
+        <p>
+          More than following a formula, kito seeks to create a universe where vulnerability, ambition, and
+          lifestyle meet. Today, without worrying about labels or other people’s negativity, he makes music
+          as his life moment demands, pouring his whole heart into every song.
+          <strong>FROM BRAZIL TO THE WORLD!</strong>
         </p>
       </article>
 
       <article class="bio-panel bio-panel-pt">
         <p>
-          <strong>kito</strong> (@eukitoo) é cantor e artista de São Paulo, com 21 anos. Desde criança
-          a música faz parte da sua vida — da bateria ao piano. Em junho de 2023 lançou o primeiro single
-          <em>Projeto Passado</em> e construiu um público que o conhece também como “Boy do trap” e
-          “Conde do trap”. Com mais de <strong>2 milhões de streams</strong>, suas letras trazem histórias
-          reais, obstáculos e sonhos, com carisma forte nas redes e nos lançamentos.
+          kito é um jovem artista brasileiro que transforma sentimento em música. Depois de iniciar sua
+          trajetória no trap e ultrapassar 3 milhões de streams, colaborando com nomes da cena como Derek,
+          Jackdi e Lil Drope, ele mostra que sua identidade vai além de qualquer rótulo. Sua faixa
+          <strong>Business</strong> com o artista <strong>Derek</strong> já ultrapassou
+          <strong>MEIO MILHÃO</strong> de streams e vem em forte crescimento desde o lançamento.
         </p>
         <p>
-          Álbuns como <em>Late Hours</em> (2025) e <em>Confessions Missing Tracks</em> (2026) ampliam
-          a sonoridade entre trap, R&B e atmosferas cinematográficas. Perfil verificado no Instagram;
-          parcerias via direct no Instagram.
+          Seu primeiro álbum da carreira, <strong>Late Hours</strong>, nasce como um manifesto de
+          versatilidade: uma guinada artística que mistura R&B atmosférico, synthpop oitentista, trap e soul
+          contemporâneo, todas essas faixas em inglês. Entre faixas mais leves como
+          <strong>Halfway Gone</strong>, momentos introspectivos e melodias marcantes como
+          <strong>Confessions</strong>, kito constrói uma estética própria — emocional, moderna e
+          introspectiva.
+        </p>
+        <p>
+          Mais do que seguir uma fórmula, kito busca criar um universo onde vulnerabilidade, ambição e
+          lifestyle se encontram. Hoje, sem pensar em rótulos e negatividade de terceiros, kito faz suas
+          músicas conforme seu momento de vida pede, deixando todo o seu coração em cada composição.
+          <strong>DO BRASIL PARA O MUNDO!</strong>
         </p>
       </article>
     </section>
@@ -154,7 +213,7 @@
     <p>Press Kit — <strong>kito</strong> · @eukitoo</p>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="main.js"></script>
+  <script src="/config.js"></script>
+  <script src="/main.js"></script>
 </body>
 </html>

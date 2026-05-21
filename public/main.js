@@ -12,9 +12,7 @@
   });
 
   applyMediaEmbeds(cfg.media);
-
-  const heroPhoto = document.querySelector(".hero-photo");
-  if (heroPhoto && cfg.media?.heroPhoto) heroPhoto.src = cfg.media.heroPhoto;
+  initInstagramLive(cfg.instagram, cfg.media?.heroPhoto);
 
   initBackgrounds(cfg.backgrounds);
 
@@ -70,12 +68,112 @@ function initBackgrounds(backgrounds) {
   });
 }
 
+function formatInstagramCount(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n) || n < 0) return null;
+  if (n >= 1_000_000) {
+    const m = n / 1_000_000;
+    const rounded = m >= 10 ? Math.round(m) : Math.round(m * 10) / 10;
+    return `+${String(rounded).replace(".", ",")}M`;
+  }
+  if (n >= 10_000) return `${Math.round(n / 1000)} mil`;
+  if (n >= 1_000) {
+    const mil = Math.round((n / 1000) * 10) / 10;
+    return Number.isInteger(mil) ? `${mil} mil` : `${String(mil).replace(".", ",")} mil`;
+  }
+  return String(n);
+}
+
+function applyInstagramFallback(instagram, mediaHeroPhoto) {
+  const photo = document.getElementById("hero-photo");
+  const followers = document.getElementById("hero-stat-followers");
+  const posts = document.getElementById("hero-stat-posts");
+  const streams = document.getElementById("hero-stat-streams");
+
+  const photoSrc = instagram?.profilePhoto || mediaHeroPhoto;
+  if (photo && photoSrc) {
+    photo.src = photoSrc;
+    photo.alt = `${instagram?.username || "kito"} — foto de perfil`;
+  }
+  if (followers && instagram?.followers != null) {
+    followers.textContent = String(instagram.followers);
+  }
+  if (posts && instagram?.posts != null) {
+    posts.textContent = String(instagram.posts);
+  }
+  if (streams && instagram?.streams) {
+    streams.textContent = instagram.streams;
+  }
+}
+
+async function initInstagramLive(instagram, mediaHeroPhoto) {
+  applyInstagramFallback(instagram, mediaHeroPhoto);
+  if (!instagram) return;
+
+  try {
+    const res = await fetch("/api/instagram");
+    const data = await res.json();
+    if (!res.ok || !data.configured || data.error) return;
+
+    const photo = document.getElementById("hero-photo");
+    if (photo && data.profilePicture) {
+      photo.src = data.profilePicture;
+      photo.alt = `@${data.username || instagram.username} — foto de perfil no Instagram`;
+    }
+
+    const followers = document.getElementById("hero-stat-followers");
+    if (followers && data.followers != null) {
+      const formatted = formatInstagramCount(data.followers);
+      if (formatted) followers.textContent = formatted;
+    }
+
+    const postsEl = document.getElementById("hero-stat-posts");
+    if (postsEl && data.posts != null) {
+      postsEl.textContent = String(data.posts);
+    }
+  } catch {
+    /* mantém valores do config.js */
+  }
+}
+
 function applyMediaEmbeds(media) {
   if (!media) return;
   initYouTubeVideos(media);
-  const sp = document.getElementById("spotify-embed");
-  if (sp && media.spotifyArtistId) {
-    sp.src = `https://open.spotify.com/embed/artist/${media.spotifyArtistId}?utm_source=generator&theme=0`;
+  initSpotifyEmbed(media);
+}
+
+function initSpotifyEmbed(media) {
+  const artistId = media?.spotifyArtistId;
+  const latest = media?.spotifyLatest || media?.spotifyAlbums?.[0];
+  const openBtn = document.getElementById("spotify-open-app");
+
+  if (openBtn) {
+    if (latest?.id) {
+      openBtn.href = `https://open.spotify.com/album/${latest.id}`;
+    } else if (artistId) {
+      openBtn.href = `https://open.spotify.com/intl-pt/artist/${artistId}`;
+    }
+  }
+
+  if (latest) {
+    const titleEl = document.getElementById("spotify-latest-title");
+    const badgeEl = document.getElementById("spotify-latest-badge");
+    const iframe = document.getElementById("spotify-latest-embed");
+
+    if (titleEl) titleEl.textContent = latest.title;
+    if (badgeEl) {
+      badgeEl.textContent = [latest.type, latest.year].filter(Boolean).join(" · ");
+    }
+    if (iframe) {
+      iframe.src = `https://open.spotify.com/embed/album/${latest.id}?utm_source=presskit&theme=0`;
+      iframe.title = `${latest.title} — kito no Spotify`;
+      iframe.height = String(latest.height || 420);
+    }
+  }
+
+  if (window.location.protocol === "file:") {
+    const hint = document.getElementById("spotify-file-hint");
+    if (hint) hint.hidden = false;
   }
 }
 
