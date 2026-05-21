@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Press Kit oficial — kito (@eukitoo). Artista brasileiro. +2M streams. Parcerias e imprensa." />
+  <title>Press Kit — kito</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero" id="topo">
+    <div class="hero-content">
+      <img class="hero-photo" src="assets/perfil.jpg" alt="kito — foto de perfil" width="140" height="140" />
+      <p class="hero-badge">Artista · Brasil</p>
+      <h1>kito</h1>
+      <p class="hero-handle">@eukitoo <span class="verified" title="Verificado">✓</span></p>
+      <p class="hero-tagline">Just making music</p>
+
+      <ul class="hero-stats">
+        <li><strong>+2M</strong><span>streams</span></li>
+        <li><strong>90 mil</strong><span>seguidores</span></li>
+        <li><strong>127</strong><span>posts</span></li>
+      </ul>
+    </div>
+
+    <nav class="pk-nav" aria-label="Navegação do press kit">
+      <a href="#bio" class="pk-nav-item" data-pk="bio">
+        <span class="pk-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16v2H4V6zm0 5h10v2H4v-2zm0 5h14v2H4v-2z"/></svg>
+        </span>
+        <span class="pk-nav-label">Bio</span>
+      </a>
+      <a href="#musica" class="pk-nav-item pk-nav-item--active" data-pk="musica">
+        <span class="pk-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg>
+        </span>
+        <span class="pk-nav-label">Música</span>
+      </a>
+      <a href="#contatos" class="pk-nav-item" data-pk="contatos">
+        <span class="pk-nav-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+        </span>
+        <span class="pk-nav-label">Links</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- MÚSICA (primeiro) -->
+    <section class="section" id="musica">
+      <h2>Música &amp; lançamentos</h2>
+      <p class="section-lead">Ouça no Spotify, assista no YouTube e acesse os álbuns nas plataformas.</p>
+
+      <div class="media-embeds" id="media-embeds">
+        <div class="youtube-videos" id="youtube-videos">
+          <div class="youtube-player youtube-player--featured">
+            <iframe
+              src="https://www.youtube.com/embed/6cdfkMOUKlw?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=1"
+              title="kito — YouTube"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="spotify-player">
+          <iframe
+            id="spotify-embed"
+            src="https://open.spotify.com/embed/artist/618jWwZQ91mDQdkrbG2Qcb?utm_source=generator&theme=0"
+            title="kito no Spotify"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIO (abaixo da música) — idioma via CSS, sem depender de JS -->
+    <section class="section section-alt" id="bio">
+      <input type="radio" name="bio-lang" id="bio-lang-en" class="bio-lang-radio" />
+      <input type="radio" name="bio-lang" id="bio-lang-pt" class="bio-lang-radio" checked />
+
+      <div class="lang-tabs">
+        <label for="bio-lang-en" class="lang-tab lang-tab-en">
+          <span class="lang-flag" aria-hidden="true">🇺🇸</span> EN
+        </label>
+        <label for="bio-lang-pt" class="lang-tab lang-tab-pt">
+          <span class="lang-flag" aria-hidden="true">🇧🇷</span> Pt-BR
+        </label>
+      </div>
+
+      <article class="bio-panel bio-panel-en">
+        <p>
+          <strong>kito</strong> (@eukitoo) is a 21-year-old singer from São Paulo, Brazil. Music has been
+          part of his life since childhood — from drums to piano. In June 2023 he released his debut single
+          <em>Projeto Passado</em>, building an audience that also knows him as “Boy do trap” and
+          “Conde do trap.” With over <strong>2 million streams</strong>, his lyrics reflect real stories,
+          obstacles, and dreams, with strong charisma on social media and releases.
+        </p>
+        <p>
+          Albums such as <em>Late Hours</em> (2025) and <em>Confessions Missing Tracks</em> (2026) expand
+          his sound across trap, R&B, and cinematic atmospheres. Verified on Instagram; partnerships via DM.
+        </p>
+      </article>
+
+      <article class="bio-panel bio-panel-pt">
+        <p>
+          <strong>kito</strong> (@eukitoo) é cantor e artista de São Paulo, com 21 anos. Desde criança
+          a música faz parte da sua vida — da bateria ao piano. Em junho de 2023 lançou o primeiro single
+          <em>Projeto Passado</em> e construiu um público que o conhece também como “Boy do trap” e
+          “Conde do trap”. Com mais de <strong>2 milhões de streams</strong>, suas letras trazem histórias
+          reais, obstáculos e sonhos, com carisma forte nas redes e nos lançamentos.
+        </p>
+        <p>
+          Álbuns como <em>Late Hours</em> (2025) e <em>Confessions Missing Tracks</em> (2026) ampliam
+          a sonoridade entre trap, R&B e atmosferas cinematográficas. Perfil verificado no Instagram;
+          parcerias via direct no Instagram.
+        </p>
+      </article>
+    </section>
+
+    <!-- CONTATOS -->
+    <section class="section" id="contatos">
+      <h2>Links</h2>
+      <p class="section-lead">Plataformas e parcerias — @eukitoo</p>
+
+      <div class="platform-grid">
+        <a class="platform-btn" href="https://www.instagram.com/eukitoo" data-platform="instagram" target="_blank" rel="noopener">Instagram</a>
+        <a class="platform-btn" href="https://www.tiktok.com/@eukitoo" data-platform="tiktok" target="_blank" rel="noopener">TikTok</a>
+        <a class="platform-btn" href="https://www.youtube.com/channel/UCgjlKWClQn52XYmi7VcxFAA" data-platform="youtube" target="_blank" rel="noopener">YouTube</a>
+        <a class="platform-btn" href="https://music.apple.com/br/artist/kito/1691542015" data-platform="apple" target="_blank" rel="noopener">Apple Music</a>
+        <a class="platform-btn" href="https://www.deezer.com/us/artist/216840205" data-platform="deezer" target="_blank" rel="noopener">Deezer</a>
+        <a class="platform-btn" href="https://tidal.com/artist/41143989" data-platform="tidal" target="_blank" rel="noopener">Tidal</a>
+        <a class="platform-btn" href="https://music.amazon.com/artists/B0CDHP7CRR/kito" data-platform="amazon" target="_blank" rel="noopener">Amazon Music</a>
+        <a class="platform-btn" href="https://open.spotify.com/intl-pt/artist/618jWwZQ91mDQdkrbG2Qcb" data-platform="spotify" target="_blank" rel="noopener">
+          <span class="platform-name">Spotify</span>
+          <span class="platform-sub">kito</span>
+        </a>
+      </div>
+
+      <a class="btn btn-primary btn-block pk-instagram-cta" href="https://www.instagram.com/eukitoo" target="_blank" rel="noopener">
+        Parcerias via Instagram DM
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Press Kit — <strong>kito</strong> · @eukitoo</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
